@@ -70,8 +70,7 @@ class UserController {
             if (!user || user.token != token) {
                 return res.status(401).send({ message: 'Authorization failed' })
             }
-            req.user = { id: '1', name: 'john' }
-            // UserController.validateUserResponce([user])
+            req.user = UserController.validateUserResponce([user])
             next()
         } catch (error) {}
     }

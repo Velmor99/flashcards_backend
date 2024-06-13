@@ -1,3 +1,4 @@
-const Server = require("./FlashcardsAPI");
+const Server = require('./FlashcardsAPI')
+// import './types/index'
 
-new Server().start();
+new Server().start()

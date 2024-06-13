@@ -25,7 +25,7 @@ export interface IUserRegister {
 }
 
 export interface IRequestWithUser {
-    id: Types.ObjectId
+    id: string
     email: string
     token: string
 }
