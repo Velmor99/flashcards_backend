@@ -21,6 +21,8 @@ const stackSchema = new Schema<IStackModel>({
     haveLearnt: [{ type: String }],
     barelyLearnt: [{ type: String }],
     isntLearnt: [{ type: String }],
+    // TODO
+    // settings: [{type: string}],
     creator: { type: Schema.Types.ObjectId, ref: 'User' },
 })
 

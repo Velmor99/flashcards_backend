@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { IUserModel } from '../interfaces/user.interfaces'
+import { IUserModel, UserRole } from '../interfaces/user.interfaces'
 
 // name
 // email
@@ -22,7 +22,9 @@ const userSchema = new Schema<IUserModel>({
     password: { type: String, require: true },
     modules: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
     stacks: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
+    folders: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
     token: { type: String, default: '' },
+    role: { type: String, enum: Object.values(UserRole), required: true },
 
     haveLearntOnDay: { type: Number, default: 0 },
     haveLearntInMonth: { type: Number, default: 0 },

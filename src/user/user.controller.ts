@@ -57,11 +57,9 @@ class UserController {
             if (authorizationHeader) {
                 token = authorizationHeader.split(' ')[1]
             }
-            console.log(token)
             let userId
             try {
                 userId = await jwt.verify(token, process.env.TOKEN_SECRET).id
-                console.log(userId)
             } catch (error) {
                 console.log(error)
             }

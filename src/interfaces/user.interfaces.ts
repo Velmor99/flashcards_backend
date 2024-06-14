@@ -8,6 +8,8 @@ export interface IUserModel {
     modules: Array<Types.ObjectId>
     stacks: Array<Types.ObjectId>
     token: string
+    role: UserRole
+    folders: Array<Types.ObjectId>
 
     haveLearntOnDay: number
     haveLearntInMonth: number
@@ -28,4 +30,10 @@ export interface IRequestWithUser {
     id: string
     email: string
     token: string
+}
+
+export enum UserRole {
+    Teacher = 'teacher',
+    Student = 'student',
+    Guest = 'guest',
 }
