@@ -4,6 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const userRouter = require('./user/user.routes')
 const stackRouter = require('./stack/stack.routes')
+const cardRouter = require('./card/card.routes')
 const PORT = process.env.PORT || 3000
 const MONGO_URI = process.env.MONGODB_URL
 
@@ -23,6 +24,7 @@ module.exports = class FlashcardsAPI {
     initRoutes() {
         this.server.use('/api/user', userRouter)
         this.server.use('/api/stack', stackRouter)
+        this.server.use('/api/card', cardRouter)
     }
 
     initMiddlewares() {

@@ -12,7 +12,7 @@ import { IStackModel } from '../interfaces/stack.interface'
 // isntLearnt
 // userId
 
-const stackSchema = new Schema<IStackModel>({
+const stackSchema: Schema = new Schema({
     name: { type: String, required: true },
     nativeLanguage: { type: String, required: true },
     targetLanguage: { type: String, required: true },
@@ -26,4 +26,4 @@ const stackSchema = new Schema<IStackModel>({
     creator: { type: Schema.Types.ObjectId, ref: 'User' },
 })
 
-module.exports = model('Stack', stackSchema)
+export default model<IStackModel>('Stack', stackSchema)

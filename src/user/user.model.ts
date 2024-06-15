@@ -15,7 +15,7 @@ import { IUserModel, UserRole } from '../interfaces/user.interfaces'
 // progressOfModules
 // etc…
 
-const userSchema = new Schema<IUserModel>({
+const userSchema: Schema = new Schema({
     name: { type: String, require: true },
     surname: { type: String, require: true },
     email: { type: String, require: true },
@@ -34,4 +34,4 @@ const userSchema = new Schema<IUserModel>({
     progressOfModules: { type: Number, default: 0 },
 })
 
-module.exports = model('User', userSchema)
+export default model<IUserModel>('User', userSchema)

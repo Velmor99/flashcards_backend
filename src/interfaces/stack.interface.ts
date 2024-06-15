@@ -1,6 +1,6 @@
-import { Types } from 'mongoose'
+import { Document, Types } from 'mongoose'
 
-export interface IStackModel {
+export interface IStack {
     name: string
     nativeLanguage: string
     targetLanguage: string
@@ -11,3 +11,5 @@ export interface IStackModel {
     isntLearnt: Array<any>
     creator: Types.ObjectId
 }
+
+export interface IStackModel extends IStack, Document {}

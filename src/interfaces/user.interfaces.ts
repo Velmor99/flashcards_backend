@@ -1,6 +1,6 @@
-import { Types } from 'mongoose'
+import { Document, Types } from 'mongoose'
 
-export interface IUserModel {
+export interface IUser {
     name: string
     surname: string
     email: string
@@ -19,12 +19,7 @@ export interface IUserModel {
     progressOfModules: number
 }
 
-export interface IUserRegister {
-    name: string
-    surname: string
-    password: string
-    email: string
-}
+export interface IUserModel extends IUser, Document {}
 
 export interface IRequestWithUser {
     id: string

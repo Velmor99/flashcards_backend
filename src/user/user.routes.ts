@@ -1,10 +1,10 @@
 import { Router } from 'express'
-const userController = require('./user.controller')
+import UserController from './user.controller'
 
 const useRouter = Router()
 
-useRouter.post('/sign-up', userController.register)
-useRouter.get('/login', userController.login)
+useRouter.post('/sign-up', UserController.register)
+useRouter.get('/login', UserController.login)
 
 // useRouter.get('/', (req, res, next) => {
 //     return res.status(200).send('test respond')
