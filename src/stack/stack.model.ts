@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { IStackModel } from '../interfaces/stack.interface'
+import { IStack, IStackModel } from '../interfaces/stack.interface'
 
 // ID
 // name
@@ -12,11 +12,11 @@ import { IStackModel } from '../interfaces/stack.interface'
 // isntLearnt
 // userId
 
-const stackSchema: Schema = new Schema({
+const stackSchema: Schema = new Schema<IStack>({
     name: { type: String, required: true },
     nativeLanguage: { type: String, required: true },
     targetLanguage: { type: String, required: true },
-    worldCards: [{ type: String }],
+    worldCards: [{ type: String, ref: 'Card' }],
     totalWords: { type: Number },
     haveLearnt: [{ type: String }],
     barelyLearnt: [{ type: String }],

@@ -4,29 +4,35 @@ import CardModel from './card.model'
 import { ICard, ICardModel } from '../interfaces/card.interface'
 
 class CardController {
-    async createOrUpdateOrDeleteCards(req: Request, res: Response, next: NextFunction) {
+    async cardsSorter(req: Request, res: Response, next: NextFunction) {
         const cardData = req.body
     }
 
-    async createCards(req: Request, res: Response, next: NextFunction) {
+    async createCards(cardsToCreate) {
         try {
-            const cardData: ICard[] = req.body
-            const cardsWithIDs = cardData.map((card: ICard) => ({
-                ...card,
-                userId: new Types.ObjectId(req.user[0].id),
-                stackId: new Types.ObjectId(card.stackId),
-            }))
-            console.log(cardsWithIDs)
-            const addedCards = await CardModel.insertMany(cardsWithIDs)
+            // const cardsWithIDs = cardsToCreate.map((card: ICard) => ({
+            //     ...card,
+            //     userId: new Types.ObjectId(req.user[0].id),
+            //     stackId: new Types.ObjectId(card.stackId),
+            // }))
+            // console.log(cardsWithIDs)
+            const addedCards = await CardModel.insertMany(cardsToCreate)
             if (addedCards) {
-                res.status(201).send(addedCards)
+                return addedCards
             }
         } catch (error) {
             console.log(error)
         }
     }
 
-    async updateCards(req: Request, res: Response, next: NextFunction) {
+    async updateCards(cardsToUpdate) {
+        try {
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async deleteCards(cardsToDelete) {
         try {
         } catch (error) {
             console.log(error)

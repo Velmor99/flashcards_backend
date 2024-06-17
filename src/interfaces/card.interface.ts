@@ -3,7 +3,9 @@ import { Document, Types } from 'mongoose'
 export interface ICard {
     targetLanguageName: string
     nativeLanguageName: string
+    transcription: string
     color: string
+    order: number
     tag: string
     synonims: Array<string>
     lastRepetition: Date

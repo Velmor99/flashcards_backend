@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { IUserModel, UserRole } from '../interfaces/user.interfaces'
+import { IUser, IUserModel, UserRole } from '../interfaces/user.interfaces'
 
 // name
 // email
@@ -15,7 +15,7 @@ import { IUserModel, UserRole } from '../interfaces/user.interfaces'
 // progressOfModules
 // etc…
 
-const userSchema: Schema = new Schema({
+const userSchema: Schema = new Schema<IUser>({
     name: { type: String, require: true },
     surname: { type: String, require: true },
     email: { type: String, require: true },
