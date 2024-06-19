@@ -16,7 +16,7 @@ const stackSchema: Schema = new Schema<IStack>({
     name: { type: String, required: true },
     nativeLanguage: { type: String, required: true },
     targetLanguage: { type: String, required: true },
-    worldCards: [{ type: String, ref: 'Card' }],
+    worldCards: [{ type: Schema.Types.ObjectId, ref: 'Card' }],
     totalWords: { type: Number },
     haveLearnt: [{ type: String }],
     barelyLearnt: [{ type: String }],

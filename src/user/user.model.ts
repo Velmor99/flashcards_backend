@@ -21,7 +21,7 @@ const userSchema: Schema = new Schema<IUser>({
     email: { type: String, require: true },
     password: { type: String, require: true },
     modules: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
-    stacks: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
+    stacks: [{ type: Schema.Types.ObjectId, ref: 'Stack' }],
     folders: [{ type: Schema.Types.ObjectId, ref: 'some ref' }],
     token: { type: String, default: '' },
     role: { type: String, enum: Object.values(UserRole), required: true },

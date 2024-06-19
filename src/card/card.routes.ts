@@ -5,9 +5,7 @@ import UserController from '../user/user.controller'
 const useRouter = Router()
 
 useRouter.post('/create', UserController.authorize, CardController.createCards)
-
-// useRouter.get('/', (req, res, next) => {
-//     return res.status(200).send('test respond')
-// })
+useRouter.patch('/update', UserController.authorize, CardController.updateCard)
+useRouter.delete('/delete', UserController.authorize, CardController.deleteCard)
 
 module.exports = useRouter
