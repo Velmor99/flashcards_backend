@@ -42,11 +42,19 @@ class CardController {
 
     async updateCard(req: Request, res: Response, next: NextFunction) {
         const { _id } = req.body
-        const updated = CardModel.findByIdAndUpdate(req.body)
+        const card = await CardModel.findById(_id)
+        if (!card) {
+            res.status(404).send({ message: 'card not found' })
+        }
+        if (card?.userId)
+            if (card.userId.toString() !== req.user[0].id.toString()) {
+                res.status(403).send({ message: 'You cannot delete this card' })
+            }
+        const updated = await CardModel.findByIdAndUpdate(req.body)
         if (!updated) {
             res.status(404).send({ message: 'card not found' })
         }
-        res.status(200).send({ updatedCard: updated })
+        res.status(200).send(updated)
         try {
         } catch (error) {
             console.log(error)
